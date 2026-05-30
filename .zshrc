@@ -1,15 +1,19 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/var/lib/snapd/snap/bin/
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+POWERLEVEL9K_MODE='nerdfont-complete'
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰▸ "
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,7 +75,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract autojump zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git extract macos zsh-syntax-highlighting zsh-autosuggestions autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,43 +90,48 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
-
-# Setting for the new UTF-8 terminal support in Lion
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=magenta'
+export PATH=$PATH:/opt/homebrew/bin:/Users/yr/Library/Python/3.9/bin/
+source <(fzf --zsh)
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 alias vim=nvim
+alias ssh-tunnel="ssh -D 7070 -f -N hkvm"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/root/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/root/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/root/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/root/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# Added by Antigravity
+export PATH="/Users/yr/.antigravity/antigravity/bin:$PATH"
 
+# Added by Antigravity
+export PATH="/Users/yr/.antigravity/antigravity/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+
+# Added by Antigravity
+export PATH="/Users/yr/.antigravity/antigravity/bin:$PATH"
+
+
+
+# a1 CLI: add install dir to PATH (install.sh)
+export PATH="/Users/yr/.qoderwork/bin:$PATH"
+
+# bun completions
+[ -s "/Users/yr/.bun/_bun" ] && source "/Users/yr/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
