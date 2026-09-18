@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -107,14 +107,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=$PATH:/opt/homebrew/bin:/Users/yr/Library/Python/3.9/bin/
-source <(fzf --zsh)
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 alias vim=nvim
-alias ssh-tunnel="ssh -D 7070 -f -N hkvm"
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 
-# Added by Antigravity
-export PATH="/Users/yr/.antigravity/antigravity/bin:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
+export PATH=$PATH:/usr/local/cuda/bin/
+export PATH="$HOME/.local/bin:$PATH"
 
 # Added by Antigravity
 export PATH="/Users/yr/.antigravity/antigravity/bin:$PATH"
