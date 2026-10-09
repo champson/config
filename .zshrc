@@ -77,6 +77,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git extract macos zsh-syntax-highlighting zsh-autosuggestions autojump)
 
+# zsh-autosuggestions 提示语颜色（默认 fg=8 太暗）。用 hex 直出真彩色，
+# 避免被 iTerm2 的 ANSI 调色板 / Minimum contrast 二次改写。
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6272a4"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -120,8 +124,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # Added by Antigravity
 export PATH="/Users/yr/.antigravity/antigravity/bin:$PATH"
 
-. "$HOME/.local/bin/env"
-
 # Added by Antigravity
 export PATH="/Users/yr/.antigravity/antigravity/bin:$PATH"
 
@@ -136,3 +138,4 @@ export PATH="/Users/yr/.qoderwork/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+codex completion zsh > ~/.codex-completion.zsh
